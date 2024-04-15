@@ -1,0 +1,73 @@
+<main class="container-fluid" ng-controller="registerController">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+          href="index.html" style="margin-left: 8px;">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
+    </ol>
+  </nav>
+  <h2 class="text-center">ĐĂNG KÝ</h2>
+  <div class="row pb-5">
+    <form name="myForm" ng-submit="addUser()">
+      <div class="col-lg-4 col-md-8 bg-light-subtle border border-secondary-subtle m-auto rounded">
+        <div class="m-3">
+          <label class="mb-3" for="user.HoTen"><strong>Họ và tên</strong> <span class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="user.HoTen" type="text" name="user.HoTen" id="user.HoTen" required>
+        </div>
+        <div class="mx-3 text-danger" ng-if="myForm['user.HoTen'].$invalid && myForm['user.HoTen'].$touched">
+          Họ và tên không được để trống
+        </div>
+        <div class="m-3">
+          <label class="mb-3" for="user.Email"><strong>Địa chỉ email</strong> <span class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="user.Email" type="email" name="user.Email" id="user.Email" required check-email> 
+        </div>
+        <div class="mx-3 text-danger" ng-if="myForm['user.Email'].$invalid && myForm['user.Email'].$touched">
+          <span ng-if="myForm['user.Email'].$error.required">
+            Email không được để trống
+          </span>
+          <span ng-if="myForm['user.Email'].$error.email">
+            Email không hợp lệ
+          </span>
+          <span ng-if="myForm['user.Email'].$error.checkEmail">
+            Email này đã được đăng ký, vui lòng nhập email khác
+          </span>
+        </div>
+        <div class="m-3">
+          <label class="mb-3" for="user.MatKhau"><strong>Mật khẩu</strong> <span class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="user.MatKhau" type="password" name="user.MatKhau" id="user.MatKhau" minlength="8" required>
+        </div>
+        <div class="mx-3 text-danger" ng-if="myForm['user.MatKhau'].$invalid && myForm['user.MatKhau'].$touched">
+          <span ng-if="myForm['user.MatKhau'].$error.required">
+            Mật khẩu không được để trống
+          </span>
+          <span ng-if="!myForm['user.MatKhau'].$error.required && myForm['user.MatKhau'].$error.minlength">
+            Mật khẩu phải có ít nhất 8 ký tự
+          </span>
+        </div>
+        <div class="m-3">
+          <label class="mb-3" for="rePass"><strong>Nhập lại mật khẩu</strong> <span
+              class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="rePass" type="password" name="rePass" id="rePass" beyeu-repass required>
+        </div>
+        <div class="mx-3 text-danger" ng-if="myForm['rePass'].$invalid && myForm['rePass'].$touched">
+          <span ng-if="myForm['rePass'].$error.required">
+            Vui lòng nhập lại mật khẩu
+          </span>
+          <span ng-if="!(myForm['rePass'].$error.required) && myForm['rePass'].$error.beyeuRepass">
+            Mật khẩu không khớp
+          </span>
+        </div>
+        <div class="m-3 d-flex align-items-center justify-content-between">
+          <div>
+            Đã có tài khoản? <a class="link-danger link-offset-2 link-underline link-underline-opacity-0"
+              href="login.html">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="m-3 text-center">
+          <button class="btn nav__search--btn" type="submit">Đăng ký</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

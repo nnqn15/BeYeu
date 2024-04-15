@@ -1,0 +1,48 @@
+<main class="container-fluid" ng-controller="loginController">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+          href="index.html" style="margin-left: 8px;">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
+    </ol>
+  </nav>
+  <h2 class="text-center">ĐĂNG NHẬP</h2>
+  <div class="row pb-5">
+    <form name="myloginForm" ng-submit="loginUser()">
+      <div class="col-lg-4 col-md-8 bg-light-subtle border border-secondary-subtle m-auto rounded">
+        <div class="m-3">
+          <label class="mb-3" for="user.Email"><strong>Địa chỉ email</strong> <span class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="user.Email" type="email" name="user.Email" id="user.Email" required> 
+        </div>
+        <div class="mx-3 text-danger" ng-if="myloginForm['user.Email'].$invalid && myloginForm['user.Email'].$touched">
+          <span ng-if="myloginForm['user.Email'].$error.required">
+            Email không được để trống
+          </span>
+          <span ng-if="myloginForm['user.Email'].$error.email">
+            Email không hợp lệ
+          </span>
+        </div>
+        <div class="m-3">
+          <label class="mb-3" for="user.MatKhau"><strong>Mật khẩu</strong> <span class="text-danger">*</span></label><br>
+          <input class="form-control" ng-model="user.MatKhau" type="password" name="user.MatKhau" id="user.MatKhau" required>
+        </div>
+        <div class="mx-3 text-danger" ng-if="myloginForm['user.MatKhau'].$invalid && myloginForm['user.MatKhau'].$touched">
+          <span ng-if="myloginForm['user.MatKhau'].$error.required">
+            Mật khẩu không được để trống
+          </span>
+        </div>
+        <div class="m-3 d-flex  align-items-center justify-content-between">
+          <a class="link-danger link-offset-2 link-underline link-underline-opacity-0" href="">Quên mật khẩu</a>
+          <div>
+            Chưa có tài khoản? <a class="link-danger link-offset-2 link-underline link-underline-opacity-0"
+              href="register.html">Đăng ký</a>
+          </div>
+        </div>
+        <div class="m-3 text-center">
+          <button class="btn nav__search--btn" type="submit">Đăng nhập</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,45 @@
+<main class="container-fluid" ng-controller="cartController">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a
+            class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#!"
+            style="margin-left: 8px;">Trang chủ</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
+      </ol>
+    </nav>
+    <h2 class="text-center">Giỏ hàng</h2>
+    <div class="container">
+      <table ng-if="User && cartShow" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Ảnh</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Số Lượng</th>
+            <th scope="col">Thao Tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="pro in cartShow" class="align-middle">
+            <td>
+              <img class="object-fit-contain" src="assets/img/{{getProductById(pro.product_id).AnhSP}}" alt="" width="50px" height="50px">
+            </td>
+            <td><a href="#!product/{{getProductById(pro.product_id).slug}}" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{getProductById(pro.product_id).TenSP}}</a></td>
+            <td><strong class="old-price">{{getProductById(pro.product_id).Gia | vndFormat}}</strong> <strong class="new-price">{{getProductById(pro.product_id).GiaGiam | vndFormat}}</strong></td>
+            <td>
+              <div class="input-group" style="width: 130px;">
+                <button class="btn nav__search--btn" type="button" ng-click="decrease(pro.product_id,pro.quantity)">-</button>
+                <input type="number" class="form-control" name="pro.quantity" ng-model="pro.quantity">
+                <button class="btn nav__search--btn" type="button" ng-click="increase(pro.product_id,pro.quantity)">+</button>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-danger" ng-click="deleteProCart(getProductById(pro.product_id).id)">Xoá</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 ng-if="!User" class="text-center my-3 text-danger">VUI LÒNG ĐĂNG NHẬP ĐỂ XEM VÀ THÊM GIỎ HÀNG</h3>
+      <h3 ng-if="User && !cartShow" class="text-center">GIỎ HÀNG TRỐNG</h3>
+    </div>
+  </main>

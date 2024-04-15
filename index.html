@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ message }} | Bé Yêu</title>
+  <link rel="icon" type="image/x-icon" href="https://nnqn1510.id.vn/public/upload/icons/favicon.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/solid.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="m-auto" style="max-width: 1476px;">
+    <div class="container-fluid d-flex align-items-center">
+      <div class="me-auto p-2">
+        <a href="#!">
+          <img src="assets/img/logo.png" alt="Porto Logo" width="113">
+        </a>
+      </div>
+      <div ng-controller="slcartController" class="p-2">
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Yêu thích"
+          data-bs-container="body"><i class="fa-regular fa-heart icon-nav"></i></a>
+        <a href="#!cart" class="position-relative link-light" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Giỏ hàng"
+          data-bs-container="body">
+          <i class="fa-solid fa-basket-shopping icon-nav"></i>
+          <span class="bg-danger rounded-circle position-absolute end-0 text-center fw-bolder" style="width: 20px; height: 20px; font-size: 13px;">{{ slcart ? slcart : 0 }}</span>
+        </a>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg menu py-3">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" ng-class="{ 'active': $route.current && $route.current.$$route.originalPath === '/' }"
+                aria-current="page" href="#!">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ng-class="{ 'active': $route.current && $route.current.$$route.originalPath === '/shop' }"
+                href="#!shop">Sản phẩm</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Danh mục
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Sơ sinh</a></li>
+                <li><a class="dropdown-item" href="#">Bé Trai</a></li>
+                <li><a class="dropdown-item" href="#">Bé Gái</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a ng-show="!User" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Tài khoản
+              </a>
+              <a ng-show="User" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Chào, {{User.HoTen}}
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                <li><a class="dropdown-item" href="#">Mã giảm giá</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li ng-show="!User"><a class="dropdown-item" href="#!login">Đăng nhập</a></li>
+                <li ng-show="!User"><a class="dropdown-item" href="#!register">Đăng ký</a></li>
+                <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+                <li ng-show="User"><a class="dropdown-item" href="#" ng-click="logout()">Đăng xuất</a></li>
+              </ul>
+            </li>
+            <li ng-show="User && User.VaiTro===2" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Admin
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#!adminProducts">Quản lý sản phẩm</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#" ng-click="logout()">Đăng xuất</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search" ng-controller="searchController" ng-submit="search()">
+            <input class="form-control me-2" type="search" ng-model="txtSearch" placeholder="Nhập tên sản phẩm..." aria-label="Search">
+            <button class="btn nav__search--btn-outline" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- show -->
+    <div ng-view></div>
+    <!-- end show -->
+    <footer class="container-fluid py-3 border-top lh-lg" style="font-size: 13px;">
+      <div class="row">
+        <div class="col-lg-5 col-md-12">
+          <img class="pb-3" src="assets/img/logo.png" width="40%" alt="">
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <h6 class="m-0 fw-4">ĐỊA CHỈ:</h6>
+              <p class="m-0 text-secondary">Cao đẳng FPT</p>
+              <h6 class="m-0 fw-4">EMAIL:</h6>
+              <p class="m-0 text-secondary">shopbeyeu@contact.com</p>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <h6 class="m-0 fw-4">PHONE:</h6>
+              <p class="m-0 text-secondary">19001010</p>
+              <h6 class="m-0 fw-4">NGÀY/GIỜ LÀM VIỆC:</h6>
+              <p class="m-0 text-secondary">Thứ hai - Chủ nhật: 8:00 - 21:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h6 class="text-center pb-3">TÀI KHOẢN</h6>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Tài khoản
+            của tôi</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Theo dõi
+            đơn hàng</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Phương thức
+            thanh toán</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Hướng dẫn
+            vận chuyển</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Câu hỏi
+            thường gặp</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Hỗ trợ sản
+            phẩm</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Quyền riêng
+            tư</a>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h6 class="text-center pb-3">VỀ CHÚNG TÔI</h6>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Về cửa hàng
+            chúng tôi</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Cam kết của
+            chúng tôi</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Điều khoản
+            và điều kiện</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Chính sách
+            quyền riêng tư</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Chính sách
+            đổi trả</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Yêu cầu
+            quyền sở hữu trí tuệ</a><br>
+          <a href="#" class="text-center w-100 link-secondary link-underline link-underline-opacity-0">Bản đồ
+            trang Web</a>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h6 class="text-center pb-3">BẢNG TIN</h6>
+          <p class="m-0 text-secondary">Nhận thông tin mới nhất về Sự kiện, Khuyến mãi và Ưu đãi. Đăng ký nhận bản
+            tin ngay hôm nay.</p>
+          <div class="input-group my-3">
+            <input type="text" class="form-control" placeholder="Địa chỉ email" aria-label="Địa chỉ email"
+              aria-describedby="button-addon2">
+            <button class="btn nav__search--btn" type="button" id="button-addon2">Button</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="container-fluid py-3 border-top" style="font-size: 13px;">
+      <div class="d-flex justify-content-between">
+        Cửa hàng bé yêu &copy; 2024. All rights reserveds.
+        <img src="assets/img/payment-icon.png" alt="">
+      </div>
+    </div>
+  </div>
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/register.js"></script>
+  <script src="assets/js/product.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/adminProducts.js"></script>
+  <script src="assets/js/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<main class="container-fluid" ng-controller="shopController">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#!"
+          style="margin-left: 8px;">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Kết quả tìm kiếm</li>
+    </ol>
+  </nav>
+  <h3 class="text-center mb-3">KẾT QUẢ TÌM KIẾM "{{keyword}}"</h3>
+  <div class="row">
+    <div class="col-lg-3">
+      <h6 class="my-3">Mức giá</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" ng-model="mucGiaAll" ng-change="filterByPrice()" checked>
+        <label class="form-check-label">
+          Tất cả
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" ng-model="tren200" ng-change="filterByPrice()" ng-checked="mucGiaAll">
+        <label class="form-check-label">
+          Trên 200.000 đ
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" ng-model="tu100den200" ng-change="filterByPrice()" ng-checked="mucGiaAll">
+        <label class="form-check-label">
+          Từ 100.000đ - 200.000đ
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" ng-model="duoi100" ng-change="filterByPrice()" ng-checked="mucGiaAll">
+        <label class="form-check-label">
+          Dưới 100.000 đ
+        </label>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="filter mb-3 d-flex align-items-center justify-content-end gap-3">
+          <p class="m-0">Bộ lọc : </p>
+          <select class="form-select" style="width: 200px;" aria-label="Default select example" ng-model="prop" ng-change="sortBy(prop)" ng-init="prop='id'">
+            <option value="id">Mặc định</option>
+            <option value="TenSP">Sắp xếp theo a-z</option>
+            <option value="-TenSP">Sắp xếp theo z-a</option>
+            <option value="GiaGiam">Giá thấp tới cao</option>
+            <option value="-GiaGiam">Giá cao tới thấp</option>
+          </select>
+        </div>
+        <div ng-repeat="pro in products | orderBy:prop | limitTo:6:begin"
+          class="col-lg-4 col-md-4 col-sm-6 d-flex align-items-center justify-content-center">
+          <div class="card" style="width: 18rem;">
+            <div class="position-relative">
+              <a href="" ng-click="addProCart(pro.id)" class="add-cart position-absolute" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" data-bs-title="Thêm vào giỏ hàng">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+              <img src="assets/img/{{pro.AnhSP}}" class="card-img-top" height="220px">
+              <a href="#!product/{{pro.slug}}"
+                class="view position-absolute text-center p-2 w-100 link-dark link-offset-2 link-underline link-underline-opacity-0">
+                Xem chi tiết
+              </a>
+            </div>
+            <div class="card-body">
+              {{pro.TenSP}} <br>
+              <div ng-show="pro.GiaGiam">
+                <strong class="old-price">{{pro.Gia | vndFormat}}</strong> <strong class="new-price">{{pro.GiaGiam |
+                  vndFormat}}</strong>
+              </div>
+              <div ng-show="!pro.GiaGiam">
+                <strong class="new-price">{{pro.Gia | vndFormat}}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center fw-bolder">
+      <li class="page-item">
+        <a class="page-link link-beyeu" href="" ng-click="first()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li ng-repeat="index in [].constructor(pageCount) track by $index" class="page-item">
+        <a class="page-link link-beyeu" href="" ng-click="page($index + 1)">{{$index + 1}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link link-beyeu" href="" ng-click="last()" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</main>

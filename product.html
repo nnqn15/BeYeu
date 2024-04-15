@@ -1,0 +1,79 @@
+<main class="container-fluid" ng-controller="productController">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+          href="index.html" style="margin-left: 8px;">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm "{{product.TenSP}}"</li>
+    </ol>
+  </nav>
+  <div class="row my-5 container-fluid">
+    <div class="col-lg-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="assets/img/{{product.AnhSP}}" width="100%" alt="">
+        </div>
+        <div class="col-lg-3">
+          <img src="assets/img/{{product.AnhSP1}}" width="100%" alt="">
+        </div>
+        <div class="col-lg-3">
+          <img src="assets/img/{{product.AnhSP2}}" width="100%" alt="">
+        </div>
+        <div class="col-lg-3">
+          <img src="assets/img/{{product.AnhSP3}}" width="100%" alt="">
+        </div>
+        <div class="col-lg-3">
+          <img src="assets/img/{{product.AnhSP4}}" width="100%" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 fs-7">
+      <h2 class="fw-bolder">{{product.TenSP}}</h2>
+      <hr class="border border-danger border-1 opacity-50 w-25">
+      <div class="price d-flex align-items-center gap-2 fw-bolder">
+        <div class="old-price fs-6">{{product.Gia | vndFormat}}</div>
+        <div class="new-price fs-5 text-danger">{{product.GiaGiam | vndFormat}}</div>
+      </div>
+      <p class="fw-semibold my-2">Số lượng : <span class="fw-bolder text-secondary">{{product.SoLuong}}</span> tồn kho</p>
+      <hr class="border border-secondary border-1 opacity-50 mb-4">
+      <form name="frmaddcart" ng-submit="addCart()">
+        <div class="input-group mt-3" style="width: 140px;">
+          <button class="btn nav__search--btn" type="button" ng-click="decrease()">-</button>
+          <input type="number" class="form-control" name="quantity" ng-model="quantity" ng-change="checkQuantity()" min="1" max="{{product.SoLuong}}" check-Quantity required>
+          <button class="btn nav__search--btn" type="button" ng-click="increase()">+</button>
+        </div>
+        <span class="text-danger" ng-show="frmaddcart['quantity'].$error.checkQuantity">Số lượng sản phẩm chỉ còn {{ product.SoLuong }} không thể thêm số lượng</span><br>
+        <input type="hidden" name="proID" ng-model="product.id">
+        <button type="submit" class="btn nav__search--btn btn-lg">THÊM VÀO GIỎ HÀNG <i
+          class="fa-solid fa-cart-arrow-down"></i></button>
+      </form>
+    </div>
+  </div>
+  <h2 class="mb-4">Sản phẩm tương tự</h2>
+  <div class="row py-4">
+    <div ng-repeat="pro in productsSame | limitTo:4" class="col-lg-3 col-md-6 col-sm-6 d-flex align-items-center justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <div class="position-relative">
+            <a href="#" class="add-cart position-absolute" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" ng-click="addProCart(pro.id)" data-bs-title="Thêm vào giỏ hàng">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <img src="assets/img/{{pro.AnhSP}}" class="card-img-top" height="220px">
+            <a href="#!product/{{pro.slug}}"
+                class="view position-absolute text-center p-2 w-100 link-dark link-offset-2 link-underline link-underline-opacity-0">
+                Xem chi tiết
+            </a>
+        </div>
+        <div class="card-body">
+            {{pro.TenSP}} <br>
+            <div ng-show="pro.GiaGiam" >
+                <strong class="old-price">{{pro.Gia | vndFormat}}</strong> <strong class="new-price">{{pro.GiaGiam | vndFormat}}</strong>
+            </div>
+            <div ng-show="!pro.GiaGiam" >
+                <strong class="new-price">{{pro.Gia | vndFormat}}</strong>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

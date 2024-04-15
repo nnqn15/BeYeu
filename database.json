@@ -1,0 +1,366 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "TenSP": "Bodysuit bé gái tam giác Animo",
+      "AnhSP": "bodysuit8.png",
+      "AnhSP1": "bodysuit8.1.jpg",
+      "AnhSP2": "bodysuit8.2.jpg",
+      "AnhSP3": "bodysuit8.1.jpg",
+      "AnhSP4": "bodysuit8.2.jpg",
+      "SoLuong": 27,
+      "Gia": 200000,
+      "GiaGiam": 99500,
+      "slug": "bodysuit-be-gai-tam-giac-animo-1",
+      "MaDM": 2
+    },
+    {
+      "id": "2",
+      "TenSP": "Bộ gile bé trai ngắn, bst Gấu mụp Animo",
+      "AnhSP": "boquanaobetrai1.png",
+      "AnhSP1": "boquanaobetrai1.1.png",
+      "AnhSP2": "boquanaobetrai1.2.png",
+      "AnhSP3": "boquanaobetrai1.3.png",
+      "AnhSP4": "boquanaobetrai1.4.png",
+      "SoLuong": 28,
+      "Gia": 299000,
+      "GiaGiam": 149500,
+      "slug": "bo-gile-be-trai-ngan-bst-gau-mup-animo-2",
+      "MaDM": 1
+    },
+    {
+      "id": "3",
+      "TenSP": "Bộ bé trai ngắn Bst Biển sâu dậy sóng Animo ",
+      "AnhSP": "boquanaobetrai2.png",
+      "AnhSP1": "boquanaobetrai2.1.png",
+      "AnhSP2": "boquanaobetrai2.2.png",
+      "AnhSP3": "boquanaobetrai2.1.png",
+      "AnhSP4": "boquanaobetrai2.2.png",
+      "SoLuong": 29,
+      "Gia": 239000,
+      "GiaGiam": 119500,
+      "slug": "bo-gile-be-trai-ngan-bst-gau-mup-animo-3",
+      "MaDM": 1
+    },
+    {
+      "id": "4",
+      "TenSP": "Bộ cavat bé trai ngắn, bst Mèo mũm mĩm Animo",
+      "AnhSP": "boquanaobetrai3.png",
+      "AnhSP1": "boquanaobetrai3.1.png",
+      "AnhSP2": "boquanaobetrai3.2.png",
+      "AnhSP3": "boquanaobetrai3.3.png",
+      "AnhSP4": "boquanaobetrai3.4.png",
+      "SoLuong": 24,
+      "Gia": 299000,
+      "GiaGiam": 145000,
+      "slug": "bo-cavat-be-trai-ngan-bst-meo-mum-mim-animo-4",
+      "MaDM": 1
+    },
+    {
+      "id": "5",
+      "TenSP": "Bộ bé trai ngắn, bst Biển sâu dậy sóng Animo",
+      "AnhSP": "boquanaobetrai4.png",
+      "AnhSP1": "boquanaobetrai4.1.png",
+      "AnhSP2": "boquanaobetrai4.2.jpg",
+      "AnhSP3": "boquanaobetrai4.png",
+      "AnhSP4": "boquanaobetrai4.1.png",
+      "SoLuong": 3,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "bo-be-trai-ngan-bst-bien-sau-day-song-animo-5",
+      "MaDM": 1
+    },
+    {
+      "id": "6",
+      "TenSP": "Bộ bé trai ngắn, bst Mèo mũm mĩm Animo ",
+      "AnhSP": "boquanaobetrai5.png",
+      "AnhSP1": "boquanaobetrai5.1.png",
+      "AnhSP2": "boquanaobetrai5.2.png",
+      "AnhSP3": "boquanaobetrai5.3.png",
+      "AnhSP4": "boquanaobetrai5.4.png",
+      "SoLuong": 25,
+      "Gia": 249000,
+      "GiaGiam": 125000,
+      "slug": "bo-be-trai-ngan-bst-meo-mum-mim-animo-6",
+      "MaDM": 1
+    },
+    {
+      "id": "7",
+      "TenSP": "Bộ bé trai dài, bst Gấu mụp Animo ",
+      "AnhSP": "boquanaobetrai6.png",
+      "AnhSP1": "boquanaobetrai6.1.png",
+      "AnhSP2": "boquanaobetrai6.2.png",
+      "AnhSP3": "boquanaobetrai6.3.png",
+      "AnhSP4": "boquanaobetrai6.4.png",
+      "SoLuong": 28,
+      "Gia": 245000,
+      "GiaGiam": 225000,
+      "slug": "bo-be-trai-dai-bst-gau-mup-animo-7",
+      "MaDM": 1
+    },
+    {
+      "id": "8",
+      "TenSP": "Bộ bé trai ngắn Bst Cua sốt trứng muối Animo ",
+      "AnhSP": "boquanaobetrai7.png",
+      "AnhSP1": "boquanaobetrai7.1.png",
+      "AnhSP2": "boquanaobetrai7.2.png",
+      "AnhSP3": "boquanaobetrai7.3.png",
+      "AnhSP4": "boquanaobetrai7.4.png",
+      "SoLuong": 28,
+      "Gia": 239000,
+      "GiaGiam": 119500,
+      "slug": "bo-be-trai-ngan-bst-cua-sot-trung-muoi-animo-8",
+      "MaDM": 1
+    },
+    {
+      "id": "9",
+      "TenSP": "Bộ bé trai dài Bst Biển sâu dậy sóng Animo ",
+      "AnhSP": "boquanaobetrai8.png",
+      "AnhSP1": "boquanaobetrai8.1.png",
+      "AnhSP2": "boquanaobetrai8.2.jpg",
+      "AnhSP3": "boquanaobetrai8.png",
+      "AnhSP4": "boquanaobetrai8.1.png",
+      "SoLuong": 29,
+      "Gia": 245000,
+      "GiaGiam": 122500,
+      "slug": "bo-be-trai-dai-bst-bien-sau-day-song-animo-9",
+      "MaDM": 1
+    },
+    {
+      "id": "10",
+      "TenSP": "Đầm vải bé gái Nơ lớn Animo ",
+      "AnhSP": "dambegai1.png",
+      "AnhSP1": "dambegai1.1.png",
+      "AnhSP2": "dambegai1.2.png",
+      "AnhSP3": "dambegai1.3.png",
+      "AnhSP4": "dambegai1.4.png",
+      "SoLuong": 28,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "dam-vai-be-gai-no-lon-animo-10",
+      "MaDM": 2
+    },
+    {
+      "id": "11",
+      "TenSP": "Đầm vải bé gái Animo ",
+      "AnhSP": "dambegai2.png",
+      "AnhSP1": "dambegai2.1.png",
+      "AnhSP2": "dambegai2.2.png",
+      "AnhSP3": "dambegai2.3.png",
+      "AnhSP4": "dambegai2.4.png",
+      "SoLuong": 30,
+      "Gia": 219000,
+      "GiaGiam": 109500,
+      "slug": "dam-vai-be-gai-animo-11",
+      "MaDM": 2
+    },
+    {
+      "id": "12",
+      "TenSP": "Đầm vải bé gái có nơ Animo ",
+      "AnhSP": "dambegai3.png",
+      "AnhSP1": "dambegai3.1.png",
+      "AnhSP2": "dambegai3.2.png",
+      "AnhSP3": "dambegai3.3.png",
+      "AnhSP4": "dambegai3.png",
+      "SoLuong": 30,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "dam-vai-be-gai-co-no-animo-12",
+      "MaDM": 2
+    },
+    {
+      "id": "13",
+      "TenSP": "Đầm vải bé gái có nơ Animo ",
+      "AnhSP": "dambegai4.png",
+      "AnhSP1": "dambegai4.1.png",
+      "AnhSP2": "dambegai4.2.png",
+      "AnhSP3": "dambegai4.3.png",
+      "AnhSP4": "dambegai4.4.png",
+      "SoLuong": 27,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "dam-vai-be-gai-co-no-animo-13",
+      "MaDM": 2
+    },
+    {
+      "id": "14",
+      "TenSP": "Đầm vải bé gái tai thỏ Animo ",
+      "AnhSP": "dambegai5.png",
+      "AnhSP1": "dambegai5.1.png",
+      "AnhSP2": "dambegai5.2.png",
+      "AnhSP3": "dambegai5.3.png",
+      "AnhSP4": "dambegai5.4.png",
+      "SoLuong": 29,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "dam-vai-be-gai-tai-tho-animo-14",
+      "MaDM": 2
+    },
+    {
+      "id": "15",
+      "TenSP": "Đầm vải bé gái Animo ",
+      "AnhSP": "dambegai7.png",
+      "AnhSP1": "dambegai7.1.png",
+      "AnhSP2": "dambegai7.2.png",
+      "AnhSP3": "dambegai7.png",
+      "AnhSP4": "dambegai7.1.png",
+      "SoLuong": 16,
+      "Gia": 219000,
+      "GiaGiam": 109500,
+      "slug": "dam-vai-be-gai-animo-15",
+      "MaDM": 2
+    },
+    {
+      "id": "16",
+      "TenSP": "Đầm vải bé gái thêu hoa Animo ",
+      "AnhSP": "dambegai8.png",
+      "AnhSP1": "dambegai8.1.png",
+      "AnhSP2": "dambegai8.2.png",
+      "AnhSP3": "dambegai8.3.jpg",
+      "AnhSP4": "dambegai8.4.jpg",
+      "SoLuong": 29,
+      "Gia": 199000,
+      "GiaGiam": 99500,
+      "slug": "dam-vai-be-gai-theu-hoa-animo-16",
+      "MaDM": 2
+    },
+    {
+      "id": "17",
+      "TenSP": "Sandal bé trai Animo ",
+      "AnhSP": "giay2.jpg",
+      "AnhSP1": "giay2.1.jpg",
+      "AnhSP2": "giay2.2.jpg",
+      "AnhSP3": "giay2.3.jpg",
+      "AnhSP4": "giay2.4.jpg",
+      "SoLuong": 30,
+      "GiaGiam": 145000,
+      "Gia": 199000,
+      "slug": "sandal-be-trai-animo-17",
+      "MaDM": 1
+    },
+    {
+      "id": "18",
+      "TenSP": "Sandal bé trai Animo ",
+      "AnhSP": "giay3.jpg",
+      "AnhSP1": "giay3.1.jpg",
+      "AnhSP2": "giay3.2.jpg",
+      "AnhSP3": "giay3.3.jpg",
+      "AnhSP4": "giay3.4.jpg",
+      "SoLuong": 22,
+      "GiaGiam": 165000,
+      "Gia": 195000,
+      "slug": "sandal-be-trai-animo-18",
+      "MaDM": 1
+    },
+    {
+      "id": "19",
+      "TenSP": "Sandal bé trai Animo ",
+      "AnhSP": "giay1.png",
+      "AnhSP1": "giay1.1.png",
+      "AnhSP2": "giay1.2.png",
+      "AnhSP3": "giay1.3.png",
+      "AnhSP4": "giay1.4.png",
+      "SoLuong": 16,
+      "Gia": 200000,
+      "GiaGiam": 155000,
+      "slug": "sandal-be-trai-animo-19",
+      "MaDM": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "SoDienThoai": "0706903022",
+      "MatKhau": "15102004Nhi",
+      "Email": "nnqn15@gmail.com",
+      "HinhAnh": "avatar_NHI.jpg",
+      "HoTen": "Nguyễn Ngọc Quỳnh Nhi",
+      "DiaChi": "Quang Trung",
+      "VaiTro": 2
+    },
+    {
+      "HoTen": "nn",
+      "Email": "nnqn@gmail.com",
+      "MatKhau": "12345678",
+      "id": "OafelIe"
+    },
+    {
+      "HoTen": "nhi",
+      "Email": "nnqn1510@gmail.com",
+      "MatKhau": "12345678",
+      "id": "z4IF6cp"
+    },
+    {
+      "HoTen": "nhi",
+      "Email": "nnqn15100@gmail.com",
+      "MatKhau": "12345678",
+      "id": "K198OH3"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "TenDM": "Bé trai",
+      "MaDMC": 0,
+      "slugDM": "be-trai"
+    },
+    {
+      "id": "2",
+      "TenDM": "Bé gái",
+      "MaDMC": 0,
+      "slugDM": "be-gai"
+    },
+    {
+      "id": "3",
+      "TenDM": "Sơ sinh",
+      "MaDMC": 0,
+      "slugDM": "so-sinh"
+    }
+  ],
+  "cart": [
+    {
+      "items": [
+        {
+          "product_id": "1",
+          "quantity": 27
+        },
+        {
+          "product_id": "3",
+          "quantity": 20
+        },
+        {
+          "product_id": "18",
+          "quantity": 5
+        }
+      ],
+      "id": 5,
+      "MaTK": "z4IF6cp"
+    },
+    {
+      "id": 2,
+      "items": [
+        {
+          "id": "1",
+          "product_id": "1",
+          "quantity": 2
+        },
+        {
+          "id": "2",
+          "product_id": "2",
+          "quantity": 1
+        }
+      ],
+      "MaTK": "OafelIe"
+    },
+    {
+      "MaTK": "K198OH3",
+      "items": [
+        {
+          "product_id": "18",
+          "quantity": 2
+        }
+      ],
+      "id": 6
+    }
+  ]
+}

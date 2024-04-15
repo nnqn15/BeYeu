@@ -1,0 +1,124 @@
+<main class="container-fluid" ng-controller="adminProductsController">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a
+          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#!"
+          style="margin-left: 8px;">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a
+          class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#"
+          style="margin-left: 8px;">Admin</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Quản lý sản phẩm</li>
+    </ol>
+  </nav>
+  <h2 class="text-center">Quản lý sản phẩm</h2>
+  <div class="container">
+    <div class="d-flex justify-content-end">
+      <button class="btn nav__search--btn" data-bs-toggle="modal" data-bs-target="#myModalAdd">Thêm sản phẩm</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Ảnh</th>
+          <th scope="col">Tên</th>
+          <th scope="col">Giá</th>
+          <th scope="col">Giá Giảm</th>
+          <th scope="col">Thao Tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pro in products" class="align-middle">
+          <th scope="row">{{$index+1}}</th>
+          <td>
+            <img class="object-fit-contain" src="assets/img/{{pro.AnhSP}}" alt="" width="50px" height="50px">
+          </td>
+          <td>{{pro.TenSP}}</td>
+          <td>{{pro.Gia | vndFormat}}</td>
+          <td ng-if="pro.GiaGiam">{{pro.GiaGiam | vndFormat}}</td>
+          <td ng-if="!pro.GiaGiam">{{0 | vndFormat}}</td>
+          <td>
+            <button class="btn btn-warning" ng-click="editPro(pro.id)" data-bs-toggle="modal" data-bs-target="#myModal">Sửa</button>
+            <button class="btn btn-danger" ng-click="deletePro(pro.id)">Xoá</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Sửa sản phẩm</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form name="myEditForm" ng-submit="updatePro()">
+          <!-- Modal body -->
+          <div class="modal-body">
+              <input type="text" class="form-control" name="editPro.TenSP" placeholder="Nhập tên sản phẩm" ng-model="editPro.TenSP" required> <br>
+              <div style="color:red" ng-if="myEditForm['editPro.TenSP'].$touched && myEditForm['editPro.TenSP'].$invalid">
+                Vui lòng nhập tên
+              </div>
+              <input type="number" class="form-control" name="editPro.Gia" placeholder="Nhập giá sản phẩm" ng-model="editPro.Gia" required>
+              <br>
+              <div style="color:red" ng-if="myEditForm['editPro.Gia'].$touched && myEditForm['editPro.Gia'].$invalid">
+                <span ng-if="myEditForm['editPro.Gia'].$error.required">Vui lòng nhập giá</span>
+                <span ng-if="myEditForm['editPro.Gia'].$error.number">Vui lòng nhập giá là số</span>
+              </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button class="btn nav__search--btn">Cập nhật</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="myModalAdd">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm sản phẩm</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form name="myAddForm" ng-submit="addPro()">
+          <!-- Modal body -->
+          <div class="modal-body">
+              <input type="text" class="form-control" name="product.TenSP" placeholder="Nhập tên sản phẩm" ng-model="product.TenSP" ng-change="updateSlug()" required>
+              <div style="color:red" ng-if="myAddForm['product.TenSP'].$touched && myAddForm['product.TenSP'].$invalid">
+                Vui lòng nhập tên
+              </div>
+              <br>
+              <input type="text" class="form-control" name="product.slug" placeholder="Nhập slug" ng-model="product.slug" required>
+              <div style="color:red" ng-if="myAddForm['product.slug'].$touched && myAddForm['product.slug'].$invalid">
+                Vui lòng không để trống slug
+              </div>
+              <br>
+              <label>Danh mục</label>
+              <select class="form-control" ng-model="product.MaDM" ng-options="cat.id as cat.TenDM for cat in category" name="product.MaDM" ng-if="category.length > 0" ng-init="product.MaDM = category[0].id"></select>
+              <br>
+              <input type="number" class="form-control" name="product.Gia" placeholder="Nhập giá sản phẩm" ng-model="product.Gia" required>
+              <div style="color:red" ng-if="myAddForm['product.Gia'].$touched && myAddForm['product.Gia'].$invalid">
+                <span ng-if="myAddForm['product.Gia'].$error.required">Vui lòng nhập giá</span>
+                <span ng-if="myAddForm['product.Gia'].$error.number">Vui lòng nhập giá là số</span>
+              </div>
+              <br>
+              <input type="number" class="form-control" name="product.GiaGiam" placeholder="Nhập giá giảm của sản phẩm" ng-model="product.GiaGiam" add-giagiam required>
+              <div style="color:red" ng-if="myAddForm['product.GiaGiam'].$touched && myAddForm['product.GiaGiam'].$invalid">
+                <span ng-if="myAddForm['product.GiaGiam'].$error.required">Vui lòng nhập giá giảm, nếu không vui lòng nhập số 0</span>
+                <span ng-if="myAddForm['product.GiaGiam'].$error.number">Vui lòng nhập giá là số</span>
+                <span ng-if="myAddForm['product.GiaGiam'].$error.addGiagiam">Vui lòng nhập giá giảm ít hơn giá ban đầu</span>
+              </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button class="btn nav__search--btn">Thêm sản phẩm</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
